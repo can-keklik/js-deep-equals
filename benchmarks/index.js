@@ -1,4 +1,4 @@
-const { compare } = require('../')
+const { compare, compareUnsorted } = require('../')
 const equal = require('lodash.isequal')
 
 let a = [1, 2, 'test', { a: '1' }, ['five', 'six', { hi: 'world' }]]
@@ -25,6 +25,8 @@ let _ = getAvgTime(() => {}, a, b) // warmup
 let [js, jns] = getAvgTime(json, a, b)
 let [ls, lns] = getAvgTime(equal, a, b)
 let [ss, sns] = getAvgTime(compare, a, b)
+let [ssu, snsu] = getAvgTime(compareUnsorted, a, b)
 console.info('Avg execution time JSON.stringify:\t\t %ds %dns', js, jns)
 console.info('Avg execution time Lodash isEqual:\t\t %ds %dns', ls, lns)
 console.info('Avg execution time js-deep-equals:\t\t %ds %dns', ss, sns)
+console.info('Avg execution time js-deep-equals (unsorted):\t %ds %dns', ssu, snsu)

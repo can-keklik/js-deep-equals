@@ -58,7 +58,7 @@ const createTree = (currNode, currentInput, prefix = '') => {
   }
   // iterable's hash is combined hash of all children
   let combined = currNode.children.reduce(combineHashes, 0)
-  currNode.hash = hasher(combined)
+  currNode.hash = hasher(combined, prefix)
   return currNode
 }
 
