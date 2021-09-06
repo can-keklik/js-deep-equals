@@ -74,4 +74,7 @@ const compareUnsorted = (a, b) => {
   return false
 }
 
-module.exports = compareUnsorted
+module.exports = {
+  compareUnsorted: compareUnsorted,
+  hashUnsorted: createFinalHash
+}

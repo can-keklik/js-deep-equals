@@ -6,12 +6,17 @@
   "scripts": {
     "test": "nyc ava ./test",
     "bench": "node benchmarks",
-    "coverage": "nyc npm test ./test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js"
+    "coverage": "nyc npm test ./test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
+    "bundle": "browserify browser.js -o dist/js-deep-equals.js && babel dist/js-deep-equals.js --presets env -o dist/js-deep-equals.js && babel dist/js-deep-equals.js --presets minify -o dist/js-deep-equals.min.js",
+    "bundle:sorted": "browserify browser.sorted.js -o dist/js-deep-equals.sorted.js && babel dist/js-deep-equals.sorted.js --presets env -o dist/js-deep-equals.sorted.js && babel dist/js-deep-equals.sorted.js --presets minify -o dist/js-deep-equals.sorted.min.js",
+    "bundle:unsorted": "browserify browser.unsorted.js -o dist/js-deep-equals.unsorted.js && babel dist/js-deep-equals.unsorted.js --presets env -o dist/js-deep-equals.unsorted.js && babel dist/js-deep-equals.unsorted.js --presets minify -o dist/js-deep-equals.unsorted.min.js"
   },
   "author": "Joel Wasserman",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.25.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-minify": "^0.5.1",
     "coveralls": "^3.0.1",
     "lodash.isequal": "^4.5.0",
     "nyc": "^11.7.3"

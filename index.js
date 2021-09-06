@@ -1,7 +1,8 @@
 const compare = require('./src/sorted')
-const compareUnsorted = require('./src/unsorted')
+const {compareUnsorted, hashUnsorted} = require('./src/unsorted')
 
 module.exports = {
   compareUnsorted,
+  hashUnsorted,
   compare
 }
